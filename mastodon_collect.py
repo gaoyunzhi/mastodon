@@ -20,7 +20,8 @@ def run():
             api_base_url = credential['mastodon_domain']
         )
         statuses = mastodon.account_statuses(mastodon.me().id)
-        print(len(statuses))
+        for status in statuses:
+            print(mastodon.status_context(status.id).descendants)
         return # testing
         
 if __name__ == '__main__':
