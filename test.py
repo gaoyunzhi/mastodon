@@ -1,4 +1,4 @@
-from mastodon_collect import *
+from mastodon_pr import *
 
 def test():
     ...
