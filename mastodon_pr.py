@@ -43,7 +43,7 @@ def run():
             access_token = 'db/%s_mastodon_secret' % mastodon_name,
             api_base_url = credential['mastodon_domain']
         )
-        statuses = mastodon.account_statuses(mastodon.me().id)
+        statuses = mastodon.account_statuses(mastodon.me().id, limit=40)
         for status in statuses:
             parent_url = status.url
             for reply_status in mastodon.status_context(status.id).descendants:
