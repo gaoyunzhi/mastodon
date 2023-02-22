@@ -7,6 +7,7 @@ from mastodon import Mastodon
 from telegram.ext import Updater
 from bs4 import BeautifulSoup
 import time
+import mastodon_2_album
 
 existing = plain_db.load('existing')
 with open('credential') as f:
@@ -62,6 +63,7 @@ def run():
                     except Exception as e:
                         print('mastodon_collect html send fail', e, reply_url)
                         tele_channel.send_message(message_plain)
+                tele_channel.send_message()
                 existing.update(reply_url, 1)
         
 if __name__ == '__main__':
